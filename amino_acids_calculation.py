@@ -3,48 +3,48 @@ from tkinter import *
 
 def calculate_amino_acids(codons):
     amino_acids = []
-    for anticodon in codons:
-        if anticodon in ["AUG"]:
+    for codon in codons:
+        if codon in ["AUG"]:
             amino_acids.append("Methionine")
-        elif anticodon in ["AUU", "AUC", "AUA"]:
+        elif codon in ["AUU", "AUC", "AUA"]:
             amino_acids.append("Isoleucine")
-        elif anticodon in ["CUU", "CUC", "CUA", "CUG", "UUA", "UUG"]:
+        elif codon in ["CUU", "CUC", "CUA", "CUG", "UUA", "UUG"]:
             amino_acids.append("Leucine")
-        elif anticodon in ["GUU", "GUC", "GUA", "GUG"]:
+        elif codon in ["GUU", "GUC", "GUA", "GUG"]:
             amino_acids.append("Valine")
-        elif anticodon in ["UUU", "UUC"]:
+        elif codon in ["UUU", "UUC"]:
             amino_acids.append("Phenylalanine")
-        elif anticodon in ["UGU", "UGC"]:
+        elif codon in ["UGU", "UGC"]:
             amino_acids.append("Cysteine")
-        elif anticodon in ["GCU", "GCC", "GCA", "GCG"]:
+        elif codon in ["GCU", "GCC", "GCA", "GCG"]:
             amino_acids.append("Alanine")
-        elif anticodon in ["GGU", "GGC", "GGA", "GGG"]:
+        elif codon in ["GGU", "GGC", "GGA", "GGG"]:
             amino_acids.append("Glycine")
-        elif anticodon in ["CCU", "CCC", "CCA", "CCG"]:
+        elif codon in ["CCU", "CCC", "CCA", "CCG"]:
             amino_acids.append("Proline")
-        elif anticodon in ["ACU", "ACC", "ACA", "ACG"]:
+        elif codon in ["ACU", "ACC", "ACA", "ACG"]:
             amino_acids.append("Threonine")
-        elif anticodon in ["UCU", "UCC", "UCA", "UCG", "AGU", "AGC"]:
+        elif codon in ["UCU", "UCC", "UCA", "UCG", "AGU", "AGC"]:
             amino_acids.append("Serine")
-        elif anticodon in ["UAU", "UAC"]:
+        elif codon in ["UAU", "UAC"]:
             amino_acids.append("Tyrosine")
-        elif anticodon in ["UGG"]:
+        elif codon in ["UGG"]:
             amino_acids.append("Tryptophan")
-        elif anticodon in ["CAA", "CAG"]:
+        elif codon in ["CAA", "CAG"]:
             amino_acids.append("Glutamine")
-        elif anticodon in ["AAU", "AAC"]:
+        elif codon in ["AAU", "AAC"]:
             amino_acids.append("Asparagine")
-        elif anticodon in ["CAU", "CAC"]:
+        elif codon in ["CAU", "CAC"]:
             amino_acids.append("Histidine")
-        elif anticodon in ["GAA", "GAG"]:
+        elif codon in ["GAA", "GAG"]:
             amino_acids.append("Glutamic Acid")
-        elif anticodon in ["GAU", "GAC"]:
+        elif codon in ["GAU", "GAC"]:
             amino_acids.append("Aspartic Acid")
-        elif anticodon in ["AAA", "AAG"]:
+        elif codon in ["AAA", "AAG"]:
             amino_acids.append("Lysine")
-        elif anticodon in ["CGU", "CGC", "CGA", "CGG", "AGA", "AGG"]:
+        elif codon in ["CGU", "CGC", "CGA", "CGG", "AGA", "AGG"]:
             amino_acids.append("Arginine")
-        elif anticodon in ["UAA", "UAG", "UGA"]:
+        elif codon in ["UAA", "UAG", "UGA"]:
             amino_acids.append("STOP")
         else:
             return "Invalid Input"

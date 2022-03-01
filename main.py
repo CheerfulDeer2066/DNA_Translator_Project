@@ -15,40 +15,47 @@ def translator(input_string, translation_type="DNA"):
     display_text.set("")
     if translation_type == "DNA":
         # DNA to mRNA & tRNA - run only if input is DNA
-        # Set DNA
+        # U to - is added to the input to make the output seen as invalid - no "-" character in calculation function
+        # Set DNA (base)
         dna.set(input_string)
         # Set mRNA
-        mrnakey = str.maketrans("ATGC", "UACG")
+        mrnakey = str.maketrans("ATGCU", "UACG-")
         mrna.set(str.translate(dna.get(), mrnakey))
         # Set tRNA
-        trnakey = str.maketrans("ATGC", "AUGC")
+        trnakey = str.maketrans("ATGCU", "AUGC-")
         trna.set(str.translate(dna.get(), trnakey))
     elif translation_type == "mRNA":
         #  mRNA to DNA & tRNA - run only if input is mRNA
-        # Set DNA
-        dnakey = str.maketrans("UACG", "ATGC")
-        dna.set(str.translate(mrna.get(), dnakey))
-        # Set mRNA
+        # T to - is added to the input to make the output seen as invalid - no "-" character in calculation function
+        # Set mRNA (base)
         mrna.set(input_string)
+        # Set DNA
+        dnakey = str.maketrans("UACGT", "ATGC-")
+        dna.set(str.translate(mrna.get(), dnakey))
         # Set tRNA
-        trnakey = str.maketrans("UACG", "AUGC")
+        trnakey = str.maketrans("UACGT", "AUGC-")
         trna.set(str.translate(mrna.get(), trnakey))
     elif translation_type == "tRNA":
         # tRNA to DNA & mRNA - run only if input is tRNA
+        # T to - is added to the input to make the output seen as invalid - no "-" character in calculation function
+        # Set tRNA (base)
+        trna.set(input_string)
         # Set DNA
-        dnakey = str.maketrans("AUGC", "ATGC")
+        dnakey = str.maketrans("AUGCT", "ATGC-")
         dna.set(str.translate(trna.get(), dnakey))
         # Set mRNA
-        mrnakey = str.maketrans("AUGC", "UACG")
+        mrnakey = str.maketrans("AUGCT", "UACG-")
         mrna.set(str.translate(trna.get(), mrnakey))
     else:
         display_text.set("Invalid Translation code given.\nPlease contact this program's creator.")
-    # Split the tRNA into anticodons
-    anticodons = []
+    # Split the tRNA into codons
+    codons = []
     for i in range(int(len(mrna.get()) / 3)):
-        anticodons.append(mrna.get()[(3 * i):3 + (3 * i)])
+        codons.append(mrna.get()[(3 * i):3 + (3 * i)])
     # Translate valid codons into their amino acids
-    amino_acids.set(calculate_amino_acids(anticodons))
+    amino_acids.set(calculate_amino_acids(codons))
+    if len(input_string) % 3 != 0:
+        display_text.set("Some bases were not counted.\nRemember that codons are sets of 3.")
     if amino_acids.get() == "Invalid Input":
         # if string are sets of 3 and don't make acids,
         # then the characters entered aren't bases
@@ -56,11 +63,13 @@ def translator(input_string, translation_type="DNA"):
         dna.set("Invalid Input")
         mrna.set("Invalid Input")
         trna.set("Invalid Input")
-    if len(input_string) % 3 != 0:
-        display_text.set("Some bases were not counted.\nRemember that codons are sets of 3.")
 
 
 window = Tk()
+window_length, window_height = (200, 250)
+window.title("DNA Translator")
+window.minsize(window_length, window_height)
+#window.maxsize(window_length, window_height)
 
 input_var = StringVar()
 dna = StringVar()

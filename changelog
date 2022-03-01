@@ -1,0 +1,5 @@
+v1.1
+ - Added a minimum size and title to the window
+ - Changed translation code to change Ts in strands marked as RNA and Us in strands marked as DNA to null characters, causing the code to recognize it an invalid input
+ - Changed variables named "anticodons" back to "codons" (as it should be)
+ - Moved "Invalid Input" check to after codon length check so that an invalid input takes priority
