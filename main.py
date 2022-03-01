@@ -65,55 +65,63 @@ def translator(input_string, translation_type="DNA"):
         trna.set("Invalid Input")
 
 
-window = Tk()
-window_length, window_height = (200, 250)
-window.title("DNA Translator")
-window.minsize(window_length, window_height)
-#window.maxsize(window_length, window_height)
+if __name__ == "__main__":
+    window = Tk()
+    window_length, window_height = (200, 250)
+    window.title("DNA Translator")
+    window.minsize(window_length, window_height)
 
-input_var = StringVar()
-dna = StringVar()
-mrna = StringVar()
-trna = StringVar()
-amino_acids = StringVar()
+    input_var = StringVar()
+    dna = StringVar()
+    mrna = StringVar()
+    trna = StringVar()
+    amino_acids = StringVar()
 
-# Add DNA info
-dnaFrame = Frame(window).pack()
-Label(dnaFrame, text="DNA:").pack()
-dna_output = Label(dnaFrame, textvariable=dna).pack()
+    # Add DNA info
+    dnaFrame = Frame(window)
+    dnaFrame.pack()
+    Label(dnaFrame, text="DNA:").pack()
+    dna_output = Label(dnaFrame, textvariable=dna)
+    dna_output.pack()
 
-# Add mRNA info
-mrnaFrame = Frame(window).pack()
-Label(mrnaFrame, text="mRNA:").pack()
-mrna_output = Label(mrnaFrame, textvariable=mrna).pack()
+    # Add mRNA info
+    mrnaFrame = Frame(window)
+    mrnaFrame.pack()
+    Label(mrnaFrame, text="mRNA:").pack()
+    mrna_output = Label(mrnaFrame, textvariable=mrna)
+    mrna_output.pack()
 
-# Add tRNA info
-trnaFrame = Frame(window).pack()
-Label(trnaFrame, text="tRNA:").pack()
-trna_output = Label(trnaFrame, textvariable=trna).pack()
+    # Add tRNA info
+    trnaFrame = Frame(window)
+    trnaFrame.pack()
+    Label(trnaFrame, text="tRNA:").pack()
+    trna_output = Label(trnaFrame, textvariable=trna)
+    trna_output.pack()
 
-# Add tRNA info
-aminoacidsFrame = Frame(window).pack()
-Label(aminoacidsFrame, text="Amino Acids:").pack()
-aminoacids_output = Label(aminoacidsFrame, textvariable=amino_acids).pack()
+    # Add tRNA info
+    aminoacidsFrame = Frame(window)
+    aminoacidsFrame.pack()
+    Label(aminoacidsFrame, text="Amino Acids:").pack()
+    aminoacids_output = Label(aminoacidsFrame, textvariable=amino_acids)
+    aminoacids_output.pack()
 
-# Add terminal for errors and entry for user input
-inputFrame = Frame(window)
-display_text = StringVar()
-interface = Label(inputFrame, textvariable=display_text)
-entry = Entry(inputFrame, textvar=input_var)
-inputFrame.pack()
-interface.pack()
-entry.pack()
+    # Add terminal for errors and entry for user input
+    inputFrame = Frame(window)
+    display_text = StringVar()
+    interface = Label(inputFrame, textvariable=display_text)
+    entry = Entry(inputFrame, textvariable=input_var)
+    inputFrame.pack()
+    interface.pack()
+    entry.pack()
 
-# Add buttons for the user to choose conversion type
-buttonFrame = Frame(window)
-dna_convert = Button(buttonFrame, text="DNA", command=lambda: translator(input_var.get(), "DNA"))
-mrna_convert = Button(buttonFrame, text="mRNA", command=lambda: translator(input_var.get(), "mRNA"))
-trna_convert = Button(buttonFrame, text="tRNA", command=lambda: translator(input_var.get(), "tRNA"))
-buttonFrame.pack()
-dna_convert.pack(side=LEFT)
-mrna_convert.pack(side=LEFT)
-trna_convert.pack(side=LEFT)
+    # Add buttons for the user to choose conversion type
+    buttonFrame = Frame(window)
+    dna_convert = Button(buttonFrame, text="DNA", command=lambda: translator(input_var.get(), "DNA"))
+    mrna_convert = Button(buttonFrame, text="mRNA", command=lambda: translator(input_var.get(), "mRNA"))
+    trna_convert = Button(buttonFrame, text="tRNA", command=lambda: translator(input_var.get(), "tRNA"))
+    buttonFrame.pack()
+    dna_convert.pack(side=LEFT)
+    mrna_convert.pack(side=LEFT)
+    trna_convert.pack(side=LEFT)
 
-window.mainloop()
+    window.mainloop()

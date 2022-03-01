@@ -3,3 +3,11 @@ v1.1
  - Changed translation code to change Ts in strands marked as RNA and Us in strands marked as DNA to null characters, causing the code to recognize it an invalid input
  - Changed variables named "anticodons" back to "codons" (as it should be)
  - Moved "Invalid Input" check to after codon length check so that an invalid input takes priority
+
+v1.1.1
+ - Defined main function to make program easier to read
+ - moved pack methods for outputs to a new line to prevent possible errors
+ - fixed error in input entry assignment
+ - removed window.maxsize assignment
+ - NOTE: program ignores invalid characters when they're at the start of a codon
+    - Current codon splitting code splits it in sets of 3, so anything that's shorter than 3 is entirely ignored
