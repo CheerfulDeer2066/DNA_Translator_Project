@@ -50,7 +50,7 @@ def translator(input_string, translation_type="DNA"):
         display_text.set("Invalid Translation code given.\nPlease contact this program's creator.")
     # Split the tRNA into codons
     codons = []
-    for i in range(int(len(mrna.get()) / 3)):
+    for i in range(int(len(mrna.get()) / 3) + 1):
         codons.append(mrna.get()[(3 * i):3 + (3 * i)])
     # Translate valid codons into their amino acids
     amino_acids.set(calculate_amino_acids(codons))

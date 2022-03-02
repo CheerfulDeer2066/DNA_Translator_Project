@@ -11,3 +11,10 @@ v1.1.1
  - removed window.maxsize assignment
  - NOTE: program ignores invalid characters when they're at the start of a codon
     - Current codon splitting code splits it in sets of 3, so anything that's shorter than 3 is entirely ignored
+
+v1.2
+ - Slightly changed mRNA splitter script to ensure it counts every single base
+    - it sometimes gives an empty string, noted here just in case that causes problems later
+ - Reworked amino acid calculation to check if the base is or isn't A, T, U, G, or C
+    - Codons are now split back into bases so they can be checked individually
+    - The calculation ignores empty strings in as that could mess it up

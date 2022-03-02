@@ -4,6 +4,7 @@ from tkinter import *
 def calculate_amino_acids(codons):
     amino_acids = []
     for codon in codons:
+        bases = [base for base in codon]
         if codon in ["AUG"]:
             amino_acids.append("Methionine")
         elif codon in ["AUU", "AUC", "AUA"]:
@@ -46,7 +47,10 @@ def calculate_amino_acids(codons):
             amino_acids.append("Arginine")
         elif codon in ["UAA", "UAG", "UGA"]:
             amino_acids.append("STOP")
-        else:
-            return "Invalid Input"
+        elif codon in [""]:
+            pass
+        for base in bases:
+            if base not in ["A", "T", "U", "G", "C"]: # If there's an invalid base, not allowed
+                return "Invalid Input"
     amino_acids = ", ".join(amino_acids)
     return amino_acids
