@@ -50,7 +50,7 @@ def calculate_amino_acids(codons):
         elif codon in [""]:
             pass
         for base in bases:
-            if base not in ["A", "T", "U", "G", "C"]: # If there's an invalid base, not allowed
+            if base not in ["A", "U", "G", "C"]:  # If there's an invalid base in the mRNA strand: not allowed
                 return "Invalid Input"
     amino_acids = ", ".join(amino_acids)
     return amino_acids

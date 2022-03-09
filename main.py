@@ -14,37 +14,37 @@ def translator(input_string, translation_type="DNA"):
     input_string = input_string.upper()
     display_text.set("")
     if translation_type == "DNA":
-        # DNA to mRNA & tRNA - run only if input is DNA
-        # U to - is added to the input to make the output seen as invalid - no "-" character in calculation function
+        # DNA to mRNA & tRNA: run only if input is DNA
+        # U to ▪ is added to the input to make the output seen as invalid: no "▪" character in calculation function
         # Set DNA (base)
         dna.set(input_string)
         # Set mRNA
-        mrnakey = str.maketrans("ATGCU", "UACG-")
+        mrnakey = str.maketrans("ATGCU", "UACG▪")
         mrna.set(str.translate(dna.get(), mrnakey))
         # Set tRNA
-        trnakey = str.maketrans("ATGCU", "AUGC-")
+        trnakey = str.maketrans("ATGCU", "AUGC▪")
         trna.set(str.translate(dna.get(), trnakey))
     elif translation_type == "mRNA":
-        #  mRNA to DNA & tRNA - run only if input is mRNA
-        # T to - is added to the input to make the output seen as invalid - no "-" character in calculation function
+        #  mRNA to DNA & tRNA: run only if input is mRNA
+        # T to ▪ is added to the input to make the output seen as invalid: no "▪" character in calculation function
         # Set mRNA (base)
         mrna.set(input_string)
         # Set DNA
-        dnakey = str.maketrans("UACGT", "ATGC-")
+        dnakey = str.maketrans("UACGT", "ATGC▪")
         dna.set(str.translate(mrna.get(), dnakey))
         # Set tRNA
-        trnakey = str.maketrans("UACGT", "AUGC-")
+        trnakey = str.maketrans("UACGT", "AUGC▪")
         trna.set(str.translate(mrna.get(), trnakey))
     elif translation_type == "tRNA":
-        # tRNA to DNA & mRNA - run only if input is tRNA
-        # T to - is added to the input to make the output seen as invalid - no "-" character in calculation function
+        # tRNA to DNA & mRNA: run only if input is tRNA
+        # T to ▪ is added to the input to make the output seen as invalid: no "▪" character in calculation function
         # Set tRNA (base)
         trna.set(input_string)
         # Set DNA
-        dnakey = str.maketrans("AUGCT", "ATGC-")
+        dnakey = str.maketrans("AUGCT", "ATGC▪")
         dna.set(str.translate(trna.get(), dnakey))
         # Set mRNA
-        mrnakey = str.maketrans("AUGCT", "UACG-")
+        mrnakey = str.maketrans("AUGCT", "UACG▪")
         mrna.set(str.translate(trna.get(), mrnakey))
     else:
         display_text.set("Invalid Translation code given.\nPlease contact this program's creator.")

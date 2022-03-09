@@ -18,3 +18,8 @@ v1.2
  - Reworked amino acid calculation to check if the base is or isn't A, T, U, G, or C
     - Codons are now split back into bases so they can be checked individually
     - The calculation ignores empty strings in as that could mess it up
+
+v1.2.1
+ - Removed T from valid bases in the amino acid calculator
+    - the calculator runs on RNA, which can't have Ts, so the strand wasn't seen as invalid despite null characters appearing
+ - changed null character from "-" to "▪" for aesthetics on a character you'll never see
