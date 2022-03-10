@@ -23,3 +23,6 @@ v1.2.1
  - Removed T from valid bases in the amino acid calculator
     - the calculator runs on RNA, which can't have Ts, so the strand wasn't seen as invalid despite null characters appearing
  - changed null character from "-" to "▪" for aesthetics on a character you'll never see
+
+v1.2.2
+ - Removed unused import in amino acid calculation file

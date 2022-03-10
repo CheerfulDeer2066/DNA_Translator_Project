@@ -1,6 +1,3 @@
-from tkinter import *
-
-
 def calculate_amino_acids(codons):
     amino_acids = []
     for codon in codons:
